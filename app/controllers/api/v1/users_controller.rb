@@ -9,6 +9,12 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def index
+    users = User.All
+    render json: users
+  end
+
+
   private
 
   def user_params
