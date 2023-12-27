@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position: MyString
+  society: MyString
+  period: MyString
+  type: 
+  logo: MyString
+  user: one
+
+two:
+  position: MyString
+  society: MyString
+  period: MyString
+  type: 
+  logo: MyString
+  user: two
