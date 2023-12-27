@@ -23,6 +23,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find_by(id: params[:id])
+    if user
+      user.destroy
+    else
+      render json: 'user not found'
+    end
+  end
+
   private
 
   def user_params
