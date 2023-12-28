@@ -9,6 +9,10 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
+  def index
+    projects = Project.where(user_id: params(:user_id))
+    render json: projects
+  end
 
   private
 
