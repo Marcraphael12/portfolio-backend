@@ -23,7 +23,14 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
-
+  def destroy
+    project = Project.find_by(id: params[:id])
+    if project
+      project.destroy
+    else
+      render json: 'project not found'
+    end
+  end
 
   private
 
