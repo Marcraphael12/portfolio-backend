@@ -1,7 +1,7 @@
 class Api::V1::ProjectsController < ApplicationController
   def create
-    @project = Project.new(project_params)
-    if @project.save
+    project = Project.new(project_params)
+    if project.save
       # session[:project_id] = @project.id
       render json: project, status: :created
     else
