@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_224450) do
     t.integer "comments"
     t.string "image"
     t.string "description"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_224450) do
     t.string "github"
     t.string "live"
     t.string "description"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

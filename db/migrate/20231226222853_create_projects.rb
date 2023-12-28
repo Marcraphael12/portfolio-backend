@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.string :github
       t.string :live
       t.string :description
-      t.integer :likes
+      t.integer :likes, default: 0
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
