@@ -14,6 +14,17 @@ class Api::V1::ProjectsController < ApplicationController
     render json: projects
   end
 
+  def show
+    project = Project.find_by(id: params[:id])
+    if project
+      render json: project
+    else
+      render json: 'project not found'
+    end
+  end
+
+
+
   private
 
   def project_params
