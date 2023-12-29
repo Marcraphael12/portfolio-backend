@@ -33,6 +33,6 @@ class Api::V1::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :github, :live, :description)
+    params.require(:project).permit(:name, :github, :live, :description, :user_id)
   end
 end
