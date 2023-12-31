@@ -11,6 +11,17 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
+  def index
+    articles = Article.where(user_id: params[:user_id])
+
+    if articles.empty?
+      render json: 'user without article'
+    else
+      render json: articles
+    end
+  end
+
+
   private
 
   def article_params
