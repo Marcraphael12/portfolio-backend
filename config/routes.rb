@@ -8,9 +8,8 @@ Rails.application.routes.draw do
         resources :testimonials
         resources :skills
         resources :experiences do
-          resources job_experiences
+          resources :job_descriptions
         end
-
       end
     end
   end
