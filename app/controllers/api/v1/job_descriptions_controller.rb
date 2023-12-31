@@ -1,6 +1,6 @@
 class Api::V1::JobDescriptionsController < ApplicationController
   def create
-    description = User.find(params[:description_id])
+    description = Experience.find(params[:experience_id])
     job_description = description.job_descriptions.new(job_description_params)
     if job_description.save
       render json: job_description, status: :created
@@ -10,10 +10,10 @@ class Api::V1::JobDescriptionsController < ApplicationController
   end
 
   def index
-    job_descriptions = JobDescription.where(user_id: params[:user_id])
+    job_descriptions = JobDescription.where(experience_id: params[:experience_id])
 
     if job_descriptions.empty?
-      render json: 'user without job description'
+      render json: 'experience without job description'
     else
       render json: job_descriptions
     end
