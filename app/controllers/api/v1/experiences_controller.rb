@@ -10,7 +10,7 @@ class Api::V1::ExperiencesController < ApplicationController
   end
 
   def index
-    experiences = experience.where(user_id: params[:user_id])
+    experiences = Experience.where(user_id: params[:user_id])
 
     if experiences.empty?
       render json: 'user without experience'
