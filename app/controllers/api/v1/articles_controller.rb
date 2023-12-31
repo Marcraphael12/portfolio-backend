@@ -21,6 +21,16 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
+  def show
+    article = Article.find(params[:id])
+    render json: article
+  end
+
+  def destroy
+    article = Article.find(params[:id])
+    article.destroy
+    render json: { message: 'article successfully destroyed' }, status: :ok
+  end
 
   private
 
