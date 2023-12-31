@@ -4,6 +4,13 @@ Rails.application.routes.draw do
       resources :users do
         resources :projects
         resources :articles
+        resources :videos
+        resources :testimonials
+        resources :skills
+        resources :experiences do
+          resources job_experiences
+        end
+
       end
     end
   end
