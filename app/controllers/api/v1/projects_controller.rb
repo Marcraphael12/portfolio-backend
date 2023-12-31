@@ -1,6 +1,7 @@
 class Api::V1::ProjectsController < ApplicationController
   def create
-    project = Project.new(project_params)
+    author = User.find(params[:user_id])
+    project = author.projects.new(project_params)
     if project.save
       # session[:project_id] = @project.id
       render json: project, status: :created
@@ -33,6 +34,6 @@ class Api::V1::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :github, :live, :description, :user_id)
+    params.require(:project).permit(:name, :github, :live, :description)
   end
 end
