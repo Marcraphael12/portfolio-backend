@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Testimonial < ApplicationRecord
   belongs_to :user
 

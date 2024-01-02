@@ -1,5 +1,7 @@
-class Video < ApplicationRecord
-    belongs_to :user
+# frozen_string_literal: true
 
-    validates :title, :link, presence: true
+class Video < ApplicationRecord
+  belongs_to :user
+
+  validates :title, :link, presence: true
 end
