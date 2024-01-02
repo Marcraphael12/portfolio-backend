@@ -16,23 +16,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_224450) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.integer "comments"
     t.string "image"
     t.string "description"
-    t.integer "likes"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "author"
-    t.string "text"
-    t.bigint "article_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -55,21 +44,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_224450) do
     t.index ["experience_id"], name: "index_job_descriptions_on_experience_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.bigint "project_id", null: false
-    t.bigint "article_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_likes_on_article_id"
-    t.index ["project_id"], name: "index_likes_on_project_id"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "github"
     t.string "live"
     t.string "description"
-    t.integer "likes"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,11 +89,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_224450) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "comments", "articles"
   add_foreign_key "experiences", "users"
   add_foreign_key "job_descriptions", "experiences"
-  add_foreign_key "likes", "articles"
-  add_foreign_key "likes", "projects"
   add_foreign_key "projects", "users"
   add_foreign_key "skills", "users"
   add_foreign_key "testimonials", "users"
