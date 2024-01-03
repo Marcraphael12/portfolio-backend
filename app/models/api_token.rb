@@ -1,0 +1,2 @@
+class CreateApiToken < ApplicationRecord
+end
