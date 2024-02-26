@@ -22,3 +22,5 @@ test:
 production:
   <<: *default
   database: app-production
+  url: <%= ENV["DATABASE_URL"] %>
+  password: <%= ENV["RAILWAYAPP_DATABASE_PASSWORD"] %>
