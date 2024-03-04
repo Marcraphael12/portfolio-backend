@@ -38,7 +38,7 @@ module Api
       private
 
       def project_params
-        params.require(:project).permit(:name, :github, :live, :description)
+        params.require(:project).permit(:name, :github, :live, :description, :image)
       end
     end
   end
